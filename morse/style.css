@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+p {
+  margin: .75em 0;
+  padding: 0 .5em;
+}
+
+#container {
+  background: #222;
+  height: 80vh;
+  width: 100vw;
+}
+
+/* dragging */
+div.drag-cursor {
+  cursor: grab;
+  cursor: -webkit-grab;
+}
+
+div.dragging-cursor {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+
+/* colors */
+.control {
+  color: #FF0070;
+}
+
+.critical {
+  color: #00F;
+}
+
+.torus {
+  color: #1BBB68;
+}

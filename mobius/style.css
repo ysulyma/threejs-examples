@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.draggable {
+  cursor: grab;
+  cursor: -webkit-grab;
+}
+
+body.dragging .draggable, .dragging {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+
+#container {
+  height: 80vh;
+  width: 100vw;
+}
+
+p {
+  margin: .75em 0;
+}
+
+.fiber {
+  color: #1BBB68;
+}
+
+.base {
+  color: #1A69B5;
+}
+
+.total {
+  background: #FFFF00;
+}
+
+.section {
+  color: #FF7000;
+}

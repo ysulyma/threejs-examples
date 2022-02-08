@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+  <link href="./style.css" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {trust: true});"></script>
+</head>
+<body>
+  <div id="container"></div>
+
+  <p>
+    \[ \htmlClass{torus}T = f^{-1}(-\infty, \htmlClass{control}a] \]
+    This is a visualization of <strong>Morse theory</strong>. Try adjusting the <span class="control">control</span> with your mouse. Observe how the homotopy type of \(\htmlClass{torus} T\) changes when we pass a <em class="critical">critical point</em>.
+  </p>
+
+  <script src="https://unpkg.com/three@0.137.5/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.137.5/examples/js/controls/OrbitControls.js"></script>
+
+  <!-- presentation -->
+  <script src="./script.js"></script>
+</body>
+</html>

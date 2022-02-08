@@ -1,0 +1,23 @@
+- look at package.json
+- look at tsconfig.json and webpack.config.js
+- look at Webpack output code
+- import statement (ES6 vs Webpack)
+
+- can import specific things from a package, or the whole thing
+- not necessary to import for typing information
+
+- use of "any" to make TypeScript shut up
+- blocks to scope variables
+
+- can't access global anymore!
+- try setting the camera position to something better
+
+- anti-aliasing
+- keep the renderer in a single div instead of entire screen
+
+- logic behind cursor CSS
+- addEventListener
+
+- screen coordinates
+- need to intersect with a plane
+- try out some TypeScript autocomplete stuff
