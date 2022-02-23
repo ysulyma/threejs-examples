@@ -6,8 +6,8 @@ function lerp(a, b, t) {
   const scene = setupScene();
   const initialU = [1, 0, 0];
   const initialV = [0, 1, 0];
-  const u = new THREE.Vector3(1, 0, 1);
-  const v = new THREE.Vector3(0, 0.5, 1);
+  const u = new THREE.Vector3(1, 0, 0);
+  const v = new THREE.Vector3(0, 1, 0);
 
   // axes
   scene.add(new THREE.AxesHelper(1));
