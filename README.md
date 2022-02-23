@@ -45,3 +45,5 @@ Here are the examples and what techniques they demonstrate:
 [morse](https://ysulyma.github.io/threejs-examples/morse/) Adding drag functionality to a scene
 
 [mobius](https://ysulyma.github.io/threejs-examples/mobius/) Another drag example; also demonstrates the use of TypeScript/Webpack
+
+[span](https://ysulyma.github.io/threejs-examples/span/) Very rough: mathematically, illustrates the concept of span. Code-wise, shows how to wire up form elements; also demonstrates a store/subscribe pattern.
