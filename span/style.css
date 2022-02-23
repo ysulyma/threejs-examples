@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 18px;
+}
+
+#scene {
+  background-color: hsl(39, 38%, 84%);
+  display: block;
+  height: 80vh;
+  width: 100%;
+}
+
+.katex .input, .katex input {
+  font-size: 1rem;
+  height: 2em;
+  width: 5em;
+  background: #28ca3e;
+}

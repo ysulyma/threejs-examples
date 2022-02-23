@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+  <link href="./style.css" rel="stylesheet"/>
+</head>
+<body>
+  <div id="scene"></div>
+
+  <form>
+    <table>
+      <tbody>
+        <tr>
+          <th>\(u_1\)</th>
+          <td>
+            <input name="u1" type="number" value="1"/>
+          </td>
+          <th>\(v_1\)</th>
+          <td>
+            <input name="v1" type="number" value="0"/>
+          </td>
+        </tr>
+        <tr>
+          <th>\(u_2\)</th>
+          <td>
+            <input name="u2" type="number" value="0"/>
+          </td>
+          <th>\(v_2\)</th>
+          <td>
+            <input name="v2" type="number" value="1"/>
+          </td>
+        </tr>
+        <tr>
+          <th>\(u_3\)</th>
+          <td>
+            <input name="u3" type="number" value="0"/>
+          </td>
+          <th>\(v_3\)</th>
+          <td>
+            <input name="v3" type="number" value="0"/>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+
+  <script src="https://unpkg.com/three@0.137.5/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.137.5/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://unpkg.com/three@0.137.5/examples/js/geometries/ParametricGeometry.js"></script>
+
+  <!-- presentation -->
+  <script src="./store.js"></script>
+  <script src="./scene.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
