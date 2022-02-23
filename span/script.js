@@ -3,11 +3,12 @@ function lerp(a, b, t) {
 }
 
 {
+  const axesWidth = 5;
+  const axesHeight = 5;
   const scene = setupScene();
-  const initialU = [1, 0, 0];
-  const initialV = [0, 1, 0];
-  const u = new THREE.Vector3(1, 0, 0);
-  const v = new THREE.Vector3(0, 1, 0);
+  window.scene = scene;
+  const u = new THREE.Vector3(...store.state.u);
+  const v = new THREE.Vector3(...store.state.v);
 
   // axes
   scene.add(new THREE.AxesHelper(1));
@@ -18,10 +19,10 @@ function lerp(a, b, t) {
   {
     const origin = new THREE.Vector3(0,0,0);
 
-    meshes.u = new THREE.ArrowHelper(new THREE.Vector3(...initialU), origin, 1, 0x3333FF);
+    meshes.u = new THREE.ArrowHelper(u, origin, 1, 0x3333FF);
     scene.add(meshes.u);
 
-    meshes.v = new THREE.ArrowHelper(new THREE.Vector3(...initialV), origin, 1, 0xFF3333); 
+    meshes.v = new THREE.ArrowHelper(v, origin, 1, 0xFF3333); 
     scene.add(meshes.v);
 
     store.subscribe(state => {
@@ -34,18 +35,51 @@ function lerp(a, b, t) {
       }
     });
   }
+
+  // lattice
+  {
+    function makeLattice(u, v) {
+      const points = [];
+      for (let i = -axesWidth; i <= axesWidth; ++i) {
+        for (let j = -axesHeight; j <= axesHeight; ++j) {
+          points.push(
+            u.clone().multiplyScalar(i).addScaledVector(v, -axesHeight),
+            u.clone().multiplyScalar(i).addScaledVector(v, axesHeight),
+            v.clone().multiplyScalar(j).addScaledVector(u, -axesWidth),
+            v.clone().multiplyScalar(j).addScaledVector(u, axesWidth),
+          );
+        }
+      }
+      return points;
+    }
+    const geometry = new THREE.BufferGeometry();
+    geometry.setFromPoints(makeLattice(u, v));
+    const material = new THREE.LineBasicMaterial({color: 0xFFFFFF});
+    meshes.lines = new THREE.LineSegments(geometry, material);
+    scene.add(meshes.lines);
+
+    store.subscribe(state => {
+      const u = new THREE.Vector3(...state.u);
+      const v = new THREE.Vector3(...state.v);
+      meshes.lines.geometry.setFromPoints(makeLattice(u, v));
+    });
+  }
   
   // plane
   {
     function makePlane(u, v) {
+      u = u.clone().normalize();
+      v = v.clone().normalize();
+      /* a PlaneGeometry would be more efficient, but ParametricGeometry
+         illustrates the idea of span more directly */
       return new THREE.ParametricGeometry((s, t, dest) => {
-        s = lerp(-2, 2, s);
-        t = lerp(-2, 2, t);
+        s = lerp(-axesWidth, axesWidth, s);
+        t = lerp(-axesHeight, axesHeight, t);
         dest.set(0, 0, 0).addScaledVector(u, s).addScaledVector(v, t);
       });
     }
     const geometry = makePlane(u, v);
-    const material = new THREE.MeshPhongMaterial({color: 0x28ca3e, side: THREE.DoubleSide});
+    const material = new THREE.MeshBasicMaterial({color: new THREE.Color(0x55cc66).convertSRGBToLinear(), side: THREE.DoubleSide});
     meshes.plane = new THREE.Mesh(geometry, material);
     scene.add(meshes.plane);
 
